@@ -8,6 +8,7 @@ Description: This is the implementation that I made for Cryptography I at Stanfo
 """
 import sys, os, random
 import binascii
+from utils import *
 
 class AES_CTR_MODE(object):
 	def __init__(self, key: bytes):
