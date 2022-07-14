@@ -44,18 +44,19 @@ a = AES_CBC_MODE(key)
 print(a.decrypt_with_IV(ct))
 del (key, ct, a)
 
-"""
 # MESSAGE 3
 
-key = binascii.unhexlify("".encode('utf-8'))
-ct  = binascii.unhexlify("".encode('utf-8'))
+key = binascii.unhexlify("36f18357be4dbd77f050515c73fcf9f2".encode('utf-8'))
+ct  = binascii.unhexlify("69dda8455c7dd4254bf353b773304eec0ec7702330098ce7f7520d1cbbb20fc388d1b0adb5054dbd7370849dbf0b88d393f252e764f1f5f7ad97ef79d59ce29f5f51eeca32eabedd9afa9329".encode('utf-8'))
 a = AES_CTR_MODE(key)
+print(a.decrypt_with_IV(ct))
 del (key, ct, a)
 
 # MESSAGE 4
 
-key = binascii.unhexlify("".encode('utf-8'))
-ct  = binascii.unhexlify("".encode('utf-8'))
+key = binascii.unhexlify("36f18357be4dbd77f050515c73fcf9f2".encode('utf-8'))
+ct  = binascii.unhexlify("770b80259ec33beb2561358a9f2dc617e46218c0a53cbeca695ae45faa8952aa0e311bde9d4e01726d3184c34451".encode('utf-8'))
 a = AES_CTR_MODE(key)
+print(a.decrypt_with_IV(ct))
 del (key, ct, a)
-"""
+
