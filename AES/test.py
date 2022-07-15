@@ -17,9 +17,12 @@ TESTING AES CTR MODE
 """
 from AES_CTR import *
 
-
-
-
+key, iv = os.urandom(16), os.urandom(16)
+a = AES_CTR_MODE(key)
+msg = b'This is some more filler that I have added.'
+b = a.encrytp_with_IV(msg, iv)
+c = a.decrypt_with_IV(b)
+del (key, iv, a, b, c)
 
 """
 COURSERA STUFF
