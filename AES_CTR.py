@@ -11,7 +11,6 @@ import binascii
 from utils import *
 from AES_CBC import AES_CBC_MODE # the CTR mode is basically CBC but with an incremental nonce/ XOR
 
-# nonce inc by 1
 def inc_bytes(a) -> bytes:
 	op = list(a)
 	for x in reversed(range(len(op))):
@@ -20,7 +19,7 @@ def inc_bytes(a) -> bytes:
 		else:
 			op[x] += 1
 			break
-	return bytes(op)
+	return bytes(op) # increments by 1
 
 class AES_CTR_MODE(object):
 	def __init__(self, key: bytes):
@@ -32,7 +31,6 @@ class AES_CTR_MODE(object):
 		blocks = []
 		nonce = iv
 		for pt_block in self.a.block_split(pt, pad=False):
-			# CTR MODE: pt_block ^ nonce
 			block = xor_bytes(pt_block, self.a.encrypt_block(nonce))
 			blocks.append(block)
 			nonce = inc_bytes(nonce)
@@ -45,17 +43,13 @@ class AES_CTR_MODE(object):
 		blocks = []
 		nonce = iv
 		for ct_block in self.a.block_split(ct, pad=False):
-			# CTR MODE: pt_block ^ nonce (undos by XOR)
 			block = xor_bytes(ct_block, self.a.encrypt_block(nonce))
 			blocks.append(block)
 			nonce = inc_bytes(nonce)
-
 		return b''.join(blocks)
 
 	def encrypt_with_IV(self, data: bytes, iv: bytes) -> bytes:
 		return b''.join([iv, self.encrypt(data, iv)])
 
 	def decrypt_with_IV(self, data: bytes) -> bytes:
-		iv = data[:16]
-		ct = data[16:]
-		return self.decrypt(ct, iv)
+		return self.decrypt(data[16:], data[:16])
