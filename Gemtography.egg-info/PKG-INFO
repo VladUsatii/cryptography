@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: Gemtography
+Version: 0.0.2
+Summary: a pip-installable package for native cryptographic tools used by Gemcoin
+Home-page: https://github.com/VladUsatii/cryptography.git
+Author: Vladislav Usatii
+Author-email: vladusatii@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: cryptography,AES
+Platform: UNKNOWN

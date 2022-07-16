@@ -2,10 +2,10 @@ from setuptools import setup
 
 setup(
 	name='Gemtography',
-	version='0.0.1',
+	version='0.0.2',
 	description='a pip-installable package for native cryptographic tools used by Gemcoin',
 	license='MIT',
-	packages=['AES'],
+	packages=['Gemtography'],
 	author='Vladislav Usatii',
 	author_email='vladusatii@gmail.com',
 	keywords=['cryptography', 'AES'],
